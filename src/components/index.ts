@@ -2,7 +2,7 @@ export { default as CreateBox } from "./MessageBox/CreateBox"
 export { default as DeleteBox } from "./MessageBox/DeleteBox"
 export { default as EditBox } from "./MessageBox/EditBox"
 export { default as DeleteAllBox } from "./MessageBox/DeleteAllBox"
-export { default as TotalBox } from "./MessageBox/TotalBox"
+export { default as TotalBox } from "../containers/Body/TotalBox"
 
 export { default as DeleteAllButton } from "./Buttons/DeleteAllButton"
 export { default as DeleteOneButton } from "./Buttons/DeleteOneButton"

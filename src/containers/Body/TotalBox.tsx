@@ -1,6 +1,6 @@
+import React, { useEffect } from "react"
 import { RootState } from "app/store"
 import { setTotal } from "features/total/totalSlice"
-import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 
