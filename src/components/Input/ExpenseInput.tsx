@@ -20,7 +20,6 @@ const ExpenseInput = ({ expenseInputRef }: ExpenseInputProps) => {
                 placeholder="ex) 30000"
                 ref={expenseInputRef}
                 min={0}
-                // defaultValue={defaultValue}
                 required
             ></input>
         </div>

@@ -2,22 +2,23 @@ import React from "react"
 import { IconButton } from "@mui/material"
 import EditIcon from "@mui/icons-material/Edit"
 import Item from "components/models/item"
+import { editItem } from "features/item/itemsSlice"
+import { useDispatch } from "react-redux"
 
 interface EditProps {
-    onEdit: (item: Item) => void
     target: Item
 }
 
-const EditButton = ({ onEdit, target }: EditProps) => {
-    const handleEdit = () => {
-        onEdit(target)
-    }
+const EditButton = ({ target }: EditProps) => {
+    const dispatch = useDispatch()
     return (
         <IconButton
             aria-label="delete"
             size="large"
             color="primary"
-            onClick={handleEdit}
+            onClick={() => {
+                dispatch(editItem(target))
+            }}
         >
             <EditIcon fontSize="inherit" />
         </IconButton>

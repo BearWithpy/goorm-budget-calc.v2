@@ -6,12 +6,13 @@ import "./styles/ItemList.css"
 import DeleteOneButton from "components/Buttons/DeleteOneButton"
 import EditButton from "components/Buttons/EditButton"
 import DeleteAllButton from "components/Buttons/DeleteAllButton"
-import { MainProps } from "containers/Body/Main"
 
-interface ItemListProps
-    extends Pick<MainProps, "items" | "onDeleteAll" | "onDelete" | "onEdit"> {}
+import { useSelector } from "react-redux"
+import { RootState } from "app/store"
 
-const ItemList = ({ items, onDeleteAll, onDelete, onEdit }: ItemListProps) => {
+const ItemList = () => {
+    const items = useSelector((state: RootState) => state.items.items)
+
     return (
         <div>
             <h1 className="text-3xl font-bold my-3">expenditure items</h1>
@@ -29,20 +30,14 @@ const ItemList = ({ items, onDeleteAll, onDelete, onEdit }: ItemListProps) => {
                         </div>
                         <div className="px-4">
                             <div className="button-group flex-shrink-0">
-                                <DeleteOneButton
-                                    onDelete={() => onDelete && onDelete(item)}
-                                    target={item}
-                                />
-                                <EditButton
-                                    onEdit={() => onEdit && onEdit(item)}
-                                    target={item}
-                                />
+                                <DeleteOneButton target={item} />
+                                <EditButton target={item} />
                             </div>
                         </div>
                     </li>
                 ))}
             </ul>
-            <DeleteAllButton onDeleteAll={() => onDeleteAll && onDeleteAll()} />
+            <DeleteAllButton />
         </div>
     )
 }
